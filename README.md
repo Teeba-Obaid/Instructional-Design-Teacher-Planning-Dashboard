@@ -137,30 +137,37 @@ Designed with instructional design principles in mind, this tool supports both i
 
 ### Workspace
 
+![Workspace](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Workspace.png)
 *Interactive workspace for entering and updating student scores.*
 
 ### Data Entry for Individual Student Scores
 
+![Data Entry](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Data%20Entry%20for%20Individual%20Student%20Scores.png)
 *Drop-Down assessment categories for individual score data entry.*
 
 ### Data Entry for Class Scores for Percentage Distribution
 
+![Data Entry](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Data%20Entry%20for%20Class%20Scores%20for%20Percentage%20Distribution.png)
 *Drop-Down assessment categories for class score data entry.*
 
 ### Scores for Selected Student Graph
 
+![Graph](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Scores%20for%20Selected%20Student%20Graph.png)
 *Dynamic histograms visualizing individual student performance.*
 
 ### Percentage Distribution of All Scores Graph
 
+![Graph](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Percentage%20Distribution%20of%20All%20Scores%20Graph.png)
 *Dynamic histograms visualizing student and class performance.*
 
 ### Knowledge Integration Rubric
 
+![Rubric](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Knowledge%20Integration%20Rubric.png)
 *Comprehensive rubric for evaluating Knowledge Integration scores.*
 
 ### Recommended Feedback for Knowledge Integration (KI)
 
+![Recommended Feedback](https://github.com/Teeba-Obaid/Instructional-Design-Teacher-Planning-Dashboard/blob/master/Screenshots%20of%20the%20Tool/Recommended%20Feedback%20for%20Knowledge%20Integration.png)
 *Structured feedback strategies aligned with KI scores.*
 
 ## Future Enhancements
