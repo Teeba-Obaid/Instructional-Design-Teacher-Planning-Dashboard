@@ -135,21 +135,33 @@ Designed with instructional design principles in mind, this tool supports both i
 
 ## Screenshots
 
-### Simulation Workspace
+### Workspace
 
 *Interactive workspace for entering and updating student scores.*
 
-### Measurement Tools
+### Data Entry for Individual Student Scores
 
-*Available assessment categories for data entry.*
+*Drop-Down assessment categories for individual score data entry.*
 
-### Measurement Table
+### Data Entry for Class Scores for Percentage Distribution
 
-*Table displaying individual and class-wide scores.*
+*Drop-Down assessment categories for class score data entry.*
 
-### Simulation Results
+### Scores for Selected Student Graph
+
+*Dynamic histograms visualizing individual student performance.*
+
+### Percentage Distribution of All Scores Graph
 
 *Dynamic histograms visualizing student and class performance.*
+
+### Knowledge Integration Rubric
+
+*Comprehensive rubric for evaluating Knowledge Integration scores.*
+
+### Recommended Feedback for Knowledge Integration (KI)
+
+*Structured feedback strategies aligned with KI scores.*
 
 ## Future Enhancements
 
