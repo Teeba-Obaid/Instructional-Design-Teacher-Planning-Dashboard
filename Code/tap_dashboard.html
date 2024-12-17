@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TAP Dashboard</title>
+    <style>
+      input[type="number"]::-webkit-outer-spin-button,
+      input[type="number"]::-webkit-inner-spin-button {
+        width: 24px; /* Increase the width of the spin buttons */
+        height: 24px; /* Increase the height of the spin buttons */
+      }
+
+      /* Style adjustments to shift content more to the left */
+      .left-aligned-content {
+        width: 80%;
+        margin-left: 10px;  /* Adjust margin to align content more to the left */
+        padding-top: 20px;  /* Keep some padding at the top */
+      }
+
+      /* Keep input and select elements aligned properly */
+      input,
+      select {
+        margin-left: 0; /* Remove extra margin on input fields */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-aligned-content">
+      <h1>Interactive Analytics & Teacher Planning Dashboard</h1>
+
+      <!-- Individual Student Scores Section -->
+      <h2>Enter Individual Student Scores</h2>
+      <form method="post" action="/update_scores">
+        <table border="1" style="width: 100%; text-align: center;">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>KI Score (Embedded)</th>
+              <th>KI Score (Posttest)</th>
+              <th>Disciplinary Score (Embedded)</th>
+              <th>Disciplinary Score (Posttest)</th>
+              <th>Engineering: Analysis (Embedded)</th>
+              <th>Engineering: Analysis (Posttest)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Drop-down for selecting student and entering individual scores -->
+            <tr>
+              <td>
+                <select name="student_id" required style="width: 150px; height: 35px;">
+                  <option value="">Select Student</option>
+                  <option value="Student A">Student A</option>
+                  <option value="Student B">Student B</option>
+                  <option value="Student C">Student C</option>
+                  <option value="Student D">Student D</option>
+                </select>
+              </td>
+              <td><input type="number" name="KI_Embedded" min="0" required style="width: 120px; height: 40px;"></td>
+              <td><input type="number" name="KI_Posttest" min="0" required style="width: 120px; height: 40px;"></td>
+              <td><input type="number" name="Disc_Embedded" min="0" required style="width: 120px; height: 40px;"></td>
+              <td><input type="number" name="Disc_Posttest" min="0" required style="width: 120px; height: 40px;"></td>
+              <td><input type="number" name="Eng_Anal_Embedded" min="0" required style="width: 120px; height: 40px;"></td>
+              <td><input type="number" name="Eng_Anal_Posttest" min="0" required style="width: 120px; height: 40px;"></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <input type="submit" value="Update Individual Scores" style="padding: 10px 20px;">
+      </form>
+      <br>
+
+      <!-- Class Scores Section -->
+      <h2>Enter Class Scores for Percentage Distribution</h2>
+      <form method="post" action="/update_class_scores">
+        <label for="score_type">Select Score Type:</label>
+        <select name="score_type" required style="width: 250px; height: 35px;">
+          <option value="">Select Score Type</option>
+          <option value="Disciplinary Score">Disciplinary Score</option>
+          <option value="KI Score">KI Score</option>
+          <option value="Engineering Approaches: Analysis">Engineering Approaches: Analysis</option>
+        </select>
+        <br><br>
+
+        <label for="score_1">Number of Students with Score 1:</label>
+        <input type="number" name="score_1" min="0" required style="width: 120px; height: 40px;">
+        <br><br>
+        <label for="score_2">Number of Students with Score 2:</label>
+        <input type="number" name="score_2" min="0" required style="width: 120px; height: 40px;">
+        <br><br>
+        <label for="score_3">Number of Students with Score 3:</label>
+        <input type="number" name="score_3" min="0" required style="width: 120px; height: 40px;">
+        <br><br>
+        <label for="score_4">Number of Students with Score 4:</label>
+        <input type="number" name="score_4" min="0" required style="width: 120px; height: 40px;">
+        <br><br>
+        <label for="score_5">Number of Students with Score 5:</label>
+        <input type="number" name="score_5" min="0" required style="width: 120px; height: 40px;">
+        <br><br>
+        <input type="submit" value="Update Class Scores for Percentage Distribution" style="padding: 10px 20px;">
+      </form>
+      <br>
+
+      <!-- Student-Specific Histogram -->
+      <div class="student-score-histogram">
+        <h3>Scores for Selected Student</h3>
+        <img src="{{ url_for('static', filename='student_scores.png') }}" alt="Student Scores">
+      </div>
+      <br>
+
+      <!-- Percentage Distribution Histogram -->
+      <div class="score-histogram">
+        <h3>Percentage Distribution of All Scores</h3>
+        <img src="{{ url_for('static', filename='percentage_scores.png') }}" alt="Percentage Scores">
+      </div>
+    </div>
+
+    <!-- Knowledge Integration Rubric Section -->
+    <div class="ki-rubric" style="margin-top: 30px; margin-left: 10px;">
+        <h3 style="font-size: 1.5em;">Knowledge Integration Rubric</h3>
+        <table border="1" style="width: 100%; text-align: left; font-size: 1.1em; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f0f0f0;">
+                    <th style="padding: 10px;">KI Score</th>
+                    <th style="padding: 10px;">Descriptive</th>
+                    <th style="padding: 10px;">Category of Responses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px;">1</td>
+                    <td style="padding: 10px;">No answer/off topic</td>
+                    <td style="padding: 10px;">
+                        Response is off topic or "I don't know" (student is goofing off or not attempting to respond to the question).<br>
+                        ● I don't know<br>
+                        ● Irrelevant<br>
+                        Not attempting to answer the question (on topic but answer does not even include a single inaccurate idea).
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">2</td>
+                    <td style="padding: 10px;">Irrelevant or incorrect</td>
+                    <td style="padding: 10px;">
+                        Response is on topic but irrelevant or incorrect (contains no valid ideas).<br>
+                        No mention of the process of using the Punnett square.<br>
+                        No mention of probability.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">3</td>
+                    <td style="padding: 10px;">Partially correct</td>
+                    <td style="padding: 10px;">
+                        Response contains a valid idea but without a link made between the procedural steps.<br>
+                        Mention either one without linking them:<br>
+                        ● Position<br>
+                        ● Combination Process<br>
+                        ● Probability
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">4</td>
+                    <td style="padding: 10px;">Emerging understanding (1 valid link)</td>
+                    <td style="padding: 10px;">
+                        Response contains 1 valid link.<br>
+                        Link any 2 of the following procedural steps:<br>
+                        (1) Position of parental alleles<br>
+                        (2) Combination of parental alleles in each square<br>
+                        (3) Probability of how likely a certain genotype occurs compared to all possible outcomes.<br>
+                        Since stating "get the probability of each square" is questioned in the critique step of the unit, they need to elaborate on it by stating how.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">5</td>
+                    <td style="padding: 10px;">Full understanding (2 or more valid procedural links)</td>
+                    <td style="padding: 10px;">
+                        Response contains 2 or more valid procedural links:<br>
+                        (1) Position each parents’ set of alleles outside the Punnett squares<br>
+                        (2) Align the potential combination of parental alleles in each square<br>
+                        (3) Get the probability of a certain genotype by counting the number of squares containing that genotype (whether it’s a dominant or a recessive trait), dividing by the total number of squares, and multiplying by 100
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Recommended Feedback for Knowledge Integration Section -->
+    <div class="feedback-step" style="margin-bottom: 50px; margin-left: 10px;">
+        <h3 style="font-size: 1.5em;">Recommended Feedback for Knowledge Integration (KI)</h3>
+        <table style="width: 100%; font-size: 1.2em;">
+            <tr>
+                <th style="background-color: #fea3d5; padding: 10px;">Score 1: Reveal Current Ideas</th>
+                <th style="background-color: yellow; padding: 10px;">Score 2: Discover New Ideas</th>
+                <th style="background-color: lightgreen; padding: 10px;">Score 3: Distinguish Among Ideas</th>
+                <th style="background-color: #a3d5fe; padding: 10px;">Score 4: Connect Relevant Ideas</th>
+            </tr>
+            <tr>
+                <td style="padding: 15px;">Encourage students to work with their thought buddy to elicit their current ideas. Prompt them to express what they think even if they are unsure, as this will help reveal any misconceptions or areas where understanding is lacking.</td>
+                <td style="padding: 15px;">Have students work with the Punnett Square model to explore the process of inheritance. Guide them to discover new ideas, such as the difference between dominant and recessive traits, and how these traits are represented in the Punnett Square.</td>
+                <td style="padding: 15px;">Ask students to revisit Step 3 and check the dominant and recessive activity. Encourage them to compare their initial ideas with the results from the Punnett Square and discuss any differences with their thought buddy. This activity will help students distinguish between correct and incorrect ideas.</td>
+                <td style="padding: 15px;">Facilitate a discussion where students link the position of parental alleles with the combination process in the Punnett Square. Encourage them to discuss the probability of inheritance with their peers, helping them connect relevant ideas and deepen their understanding of how inheritance works.</td>
+            </tr>
+        </table>
+    </div>
+  </body>
+</html>
